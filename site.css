@@ -55,7 +55,7 @@ header li a {
 /* *****************Image principale************************* */
 #imagePrincipale {
   padding: 60px;ma
-  background: url(image-principale.JPG) no-repeat fixed 50% 50%;
+  background: url(.//image-principale.JPG) no-repeat fixed 50% 50%;
   background-size: cover;
   height: 799px;
 }
@@ -123,16 +123,16 @@ font-weight: 300;
     padding-top: 60px;
 }
 #ocean{
-    background: url(ocean.jpg);
+    background: url(.//ocean.jpg);
 }
 #chateau{
-    background: url(chateau.JPG);
+    background: url(.//chateau.JPG);
 }
 #phare{
-    background: url(phare.JPG);
+    background: url(.//phare.JPG);
 }
 #vignoble{
-    background: url(vignes.jpg);
+    background: url(.//vignes.jpg);
 }
 
 
