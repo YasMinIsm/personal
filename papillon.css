@@ -1,0 +1,295 @@
+:root {
+  --color1: rgba(17, 38, 68, 0.795);
+  --color2: rgb(53, 49, 49);
+  --color3: pink;
+  --color4: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: url(./back.jpg) center/cover;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.card {
+  background: rgba(83, 79, 79, 0.575);
+  width: calc(100% - 50px);
+  padding: 20px 20px 6px;
+  box-shadow: 0 2px 5px rgba(34, 32, 32, 0.795);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+}
+.card::before {
+  content: "\2730";
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 2.4rem;
+}
+h1 {
+  margin-bottom: 24px;
+  position: relative;
+}
+h1::after {
+  content: "";
+  position: absolute;
+  background: var(--color3);
+  height: 1px;
+  width: 100%;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  animation: h1anime 5s ease-in-out forwards;
+  transform-origin: left;
+}
+@keyframes h1anime {
+  100% {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.polygon-container {
+  filter: drop-shadow(-1px 10px 1px rgba(71, 51, 71, 0.479));
+  /* mettre le parent en grid */
+  place-self: center left;
+}
+.polygon {
+  clip-path: polygon(
+    0 36%,
+    15% 15%,
+    50% 39%,
+    50% 38%,
+    85% 15%,
+    99% 39%,
+    90% 67%,
+    72% 85%,
+    52% 100%,
+    54% 100%,
+    35% 87%,
+    12% 70%
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(21, 37, 107, 0.644) 0%,
+    rgba(57, 4, 68, 0.945) 100%
+  );
+  height: 100px;
+  width: 100px;
+}
+
+.polygon:after {
+  content: "text";
+  position: absolute;
+  color: var(--color3);
+  background: var(--color2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(344deg);
+  width: 90px;
+  padding: 4px;
+  text-align: center;
+}
+p {
+  line-height: 26px;
+  margin: 20px 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-align: justify;
+}
+p::selection {
+  background: var(--color3);
+  color: var(--color2);
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0 30px;
+  perspective: 40px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"]:checked + label {
+  background: rgb(204, 104, 204);
+  transform: scale(1.1);
+  filter: brightness(170%);
+}
+label {
+  cursor: pointer;
+  border: 1px solid var(--color1);
+  background: var(--color3);
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.2s;
+  user-select: none;
+}
+label:first-of-type:hover {
+  animation: label1 1s infinite linear;
+}
+@keyframes label1 {
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+label:nth-child(4):hover {
+  animation: label2 3s infinite linear;
+}
+/* NE PAS OUBLIER LA PERSPECTIVE SUR LE PARENT*/
+@keyframes label2 {
+  33% {
+    transform: translateZ(30px);
+  }
+  60% {
+    transform: translateZ(-40px);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+.e-mail {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.e-mail input {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 3px solid transparent;
+  transition: 0.3s;
+  text-align: center;
+  font-size: 1.1rem;
+  color: rgb(107, 1, 63);
+  width: 35%;
+  max-width: 300px;
+  min-width: 180px;
+}
+input[type="text"]:focus {
+  background: transparent;
+  border: 3px solid var(--color3);
+  border-radius: 150px;
+}
+input[type="text"]::placeholder {
+  color: var(--color3);
+}
+button {
+  cursor: pointer;
+  background: var(--color3);
+  border: none;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+  border-radius: 150px;
+  margin: 0 auto;
+  display: block;
+  transition: 0.1s;
+}
+button:hover {
+  letter-spacing: 3px;
+}
+button:active {
+  transform: scale(1.2);
+  background: rgb(83, 83, 136);
+}
+button:hover + a,
+a:hover {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+a {
+  color: var(--color3);
+  text-align: center;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: 0.3s;
+}
+a:visited {
+  color: rgb(3, 80, 54);
+}
+img {
+  height: 40px;
+  position: absolute;
+  filter: drop-shadow(0px 6px 3px rgba(111, 6, 143, 0.856));
+  z-index: -1;
+  animation: papillon 20s infinite linear;
+}
+@keyframes papillon {
+  0% {
+    top: 2%;
+    left: 2%;
+    transform: rotate(90deg);
+  }
+  10% {
+    top: 6%;
+    left: 30%;
+    transform: rotate(95deg);
+  }
+  20% {
+    top: 9%;
+    left: 60%;
+    transform: rotate(60deg);
+  }
+  30% {
+    top: 0%;
+    left: 80%;
+    transform: rotate(90deg);
+  }
+  40% {
+    top: 20%;
+    left: 120%;
+    transform: rotate(110deg);
+  }
+  50% {
+    top: 50%;
+    left: 80%;
+    transform: rotate(323deg);
+  }
+  60% {
+    top: 90%;
+    left: 90%;
+    transform: rotate(256deg);
+  }
+  70% {
+    top: 110%;
+    left: 50%;
+    transform: rotate(237deg);
+  }
+  80% {
+    top: 85%;
+    left: 30%;
+    transform: rotate(323deg);
+  }
+  90% {
+    top: 50%;
+    left: 15%;
+    transform: rotate(350deg);
+  }
+  100% {
+    top: 2%;
+    left: 2%;
+    transform: rotate(90deg);
+  }
+}
